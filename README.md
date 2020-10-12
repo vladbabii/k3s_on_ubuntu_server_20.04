@@ -16,3 +16,8 @@ apt purge snapd
 apt update
 apt upgrade -y
 ```
+
+## Install some stuff (optional)
+```
+apt install -y nano htop screen net-tools ethtool iperf
+```
