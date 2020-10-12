@@ -38,12 +38,13 @@ run queries
 create database k3s;
 CREATE USER 'k3s'@'%' IDENTIFIED BY 'k3sk3s';
 GRANT USAGE ON *.* TO 'k3s'@'%';
+GRANT EXECUTE, SELECT, SHOW VIEW, ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE VIEW, DELETE, DROP, EVENT, INDEX, INSERT, REFERENCES, TRIGGER, UPDATE, LOCK TABLES  ON `k3s`.* TO 'k3s'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
 
 ## Install K3s
 ```
-curl -sfL https://get.k3s.io | sh -s - server --datastore-endpoint="mysql://k3s@k3sk3s@tcp(127.0.0.1:3306)/k3s"
+curl -sfL https://get.k3s.io | sh -s - server --datastore-endpoint="mysql://k3s:k3sk3s@tcp(127.0.0.1:3306)/k3s"
 ```
 
