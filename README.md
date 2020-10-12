@@ -1,2 +1,18 @@
-# k3s_on_ubuntu_server_20.04
-K3s on Ubuntu Server 20.04
+# K3s on Ubuntu Server 20.04
+
+
+## Remove Snapd
+```
+snap list
+snap remove lxd
+snap remove core18
+snap remove snapd
+apt purge snap
+apt purge snapd
+```
+
+## Update Packages
+```
+apt update
+apt upgrade -y
+```
