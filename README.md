@@ -21,3 +21,29 @@ apt upgrade -y
 ```
 apt install -y nano htop screen net-tools ethtool iperf
 ```
+
+## Install MySQL
+```
+apt install -y mysql-server
+```
+
+## Setup MySQL
+shell
+```
+mysql -u root
+```
+
+run queries
+```
+create database k3s;
+CREATE USER 'k3s'@'%' IDENTIFIED BY 'k3sk3s';
+GRANT USAGE ON *.* TO 'k3s'@'%';
+FLUSH PRIVILEGES;
+```
+
+
+## Install K3s
+```
+curl -sfL https://get.k3s.io | sh -s - server --datastore-endpoint="mysql://k3s@k3sk3s@tcp(127.0.0.1:3306)/k3s"
+```
+
